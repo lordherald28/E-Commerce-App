@@ -1,0 +1,11 @@
+app-container {
+    .disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .enabled {
+        opacity: 1;
+        cursor: pointer;
+    }
+}

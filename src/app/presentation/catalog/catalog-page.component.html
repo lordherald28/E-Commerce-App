@@ -1,0 +1,14 @@
+<app-product-list 
+[items]="products()" 
+(emitToCreate)="AddToCart($event)"
+(emitToUpdate)="UpdateItemToCart($event)"
+(emitToDelete)="DeleteItemFromCart($event)"
+></app-product-list>
+@if (isPaying()) {
+<div class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center">
+    <div class="flex flex-col items-center gap-3">
+        <span class="h-12 w-12 rounded-full border-4 border-slate-200/40 border-t-transparent animate-spin"></span>
+        <p class="text-xs text-slate-200">Cargando productos…</p>
+    </div>
+</div>
+}

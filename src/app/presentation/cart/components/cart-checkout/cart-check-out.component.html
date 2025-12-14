@@ -1,0 +1,199 @@
+<div class="min-h-screen bg-slate-950 text-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-6">
+
+        <div class="mb-4 flex items-center gap-2 text-xs text-slate-400">
+            <a routerLink="/catalog" class="hover:text-slate-100">Catálogo</a>
+            <span>/</span>
+            <a routerLink="/cart" class="hover:text-slate-100">Carrito</a>
+            <span>/</span>
+            <span>Pago</span>
+        </div>
+
+        <div class="grid gap-6 items-start lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+
+            <!-- IZQUIERDA: Datos de pago -->
+            <section class="space-y-4 min-w-0">
+
+                <!-- Contacto -->
+                <div class="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+                    <h2 class="text-sm font-semibold text-slate-100">Contacto</h2>
+                    <p class="mt-1 text-xs text-slate-400">Usaremos este correo para enviarte el comprobante.</p>
+
+                    <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">Email</label>
+                            <input type="email" placeholder="tu@correo.com" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">Teléfono</label>
+                            <input type="tel" placeholder="+53 5xxxxxxx" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+                    <h2 class="text-sm font-semibold text-slate-100">Dirección de entrega</h2>
+
+                    <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                        <div class="space-y-1 sm:col-span-2">
+                            <label class="text-xs text-slate-300">Nombre completo</label>
+                            <input type="text" placeholder="Nombre y apellidos" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1 sm:col-span-2">
+                            <label class="text-xs text-slate-300">Dirección</label>
+                            <input type="text" placeholder="Calle, número, reparto, apto..." class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">Ciudad</label>
+                            <input type="text" placeholder="La Habana" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">Provincia</label>
+                            <input type="text" placeholder="La Habana" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">Código postal</label>
+                            <input type="text" placeholder="10xxx" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">Referencia</label>
+                            <input type="text" placeholder="Entre X e Y, timbre azul..." class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Método de pago -->
+                <div class="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+                    <h2 class="text-sm font-semibold text-slate-100">Método de pago</h2>
+
+                    <div class="mt-4 grid gap-3">
+                        <label
+                            class="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 cursor-pointer hover:border-emerald-500 transition">
+                            <input type="radio" name="pay" checked class="accent-emerald-500" />
+                            <div class="min-w-0">
+                                <p class="text-sm font-medium">Tarjeta</p>
+                                <p class="text-xs text-slate-400">Visa / MasterCard</p>
+                            </div>
+                        </label>
+
+                        <label
+                            class="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 cursor-pointer hover:border-emerald-500 transition">
+                            <input type="radio" name="pay" class="accent-emerald-500" />
+                            <div class="min-w-0">
+                                <p class="text-sm font-medium">Transferencia</p>
+                                <p class="text-xs text-slate-400">Confirmación manual</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                        <div class="space-y-1 sm:col-span-2">
+                            <label class="text-xs text-slate-300">Número de tarjeta</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">MM/AA</label>
+                            <input type="text" placeholder="12/28" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs text-slate-300">CVC</label>
+                            <input type="text" placeholder="123" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+
+                        <div class="space-y-1 sm:col-span-2">
+                            <label class="text-xs text-slate-300">Nombre en la tarjeta</label>
+                            <input type="text" placeholder="Como aparece en la tarjeta" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500
+                       focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="space-y-4 rounded-2xl border border-slate-800 bg-slate-900 p-5 min-w-0">
+                <p class="text-xs uppercase tracking-wide text-slate-400">Resumen</p>
+
+                <div class="space-y-3">
+                    <div class="p-5 space-y-4">
+                        @if (cartItemsVm()!.length) {
+                        @for (product of cartItemsVm(); track product.productId) {
+                        <app-cart-item [item]="product" [showControlsAmmoun]="false" />
+                        }
+                        } @else {
+                        <p class="text-sm text-slate-300">
+                            El carrito está vacío.
+                        </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-800 pt-4 space-y-2 text-sm">
+                    <div class="flex justify-between text-slate-300">
+                        <span>Subtotal</span>
+                        <span>{{ subtotal() | currency}}</span>
+                    </div>
+                    <div class="flex justify-between text-slate-300">
+                        <span>Envío</span>
+                        <span>{{ shippingTax() | currency }}</span>
+                    </div>
+                    <div class="flex justify-between text-slate-300">
+                        <span>Descuento</span>
+                        <span>-$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-slate-100 font-semibold pt-2 border-t border-slate-800">
+                        <span>Total</span>
+                        <span class="text-emerald-400">{{( subtotal() + shippingTax()) | currency}}</span>
+                    </div>
+                </div>
+
+                <div class="mt-4 space-y-3">
+                    <button type="button" class="flex w-full items-center justify-center rounded-full
+         bg-emerald-500 px-4 py-2 text-sm font-medium text-slate-950
+         hover:bg-emerald-400 active:scale-[0.98] transition disabled:opacity-50 disabled:pointer-events-none"
+                        (click)="payout()" [disabled]="isPaying()">
+                        Pagar ahora
+                    </button>
+
+
+                    <a routerLink="/cart" class="flex w-full items-center justify-center rounded-full
+                   border border-slate-600 px-4 py-2 text-xs font-medium
+                   text-slate-200 hover:bg-slate-800">
+                        Volver al carrito
+                    </a>
+                </div>
+
+                <div class="border-t border-slate-800 pt-4 text-xs text-slate-400 space-y-1">
+                    <p>• Pago seguro con tarjetas y billeteras digitales.</p>
+                    <p>• Envío estándar en 3–5 días hábiles.</p>
+                    <p>• Devoluciones gratuitas dentro de los 30 días.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+@if (isPaying()) {
+<div class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center">
+    <div class="flex flex-col items-center gap-3">
+        <span class="h-12 w-12 rounded-full border-4 border-slate-200/40 border-t-transparent animate-spin"></span>
+        <p class="text-xs text-slate-200">Procesando pago… No cierres ni recargues esta página.</p>
+    </div>
+</div>
+}

@@ -1,0 +1,27 @@
+<div class="fixed top-12 right-4 mx-3">
+    <div class="flex w-full max-w-lg space-x-4 rounded-xl p-4 text-gray-50 shadow
+           transition-opacity duration-700 ease-in-out
+           bg-opacity-75
+           divide-x divide-gray-400 rtl:space-x-reverse rtl:divide-x-reverse" [ngClass]="{
+      'bg-green-600' : notifyService()?.type === 'success',
+      'bg-red-600'   : notifyService()?.type === 'error',
+      'bg-yellow-600': notifyService()?.type === 'warn',
+      'bg-blue-600'  : notifyService()?.type === 'info',
+      'opacity-0'    : !notifyService(),
+      'opacity-100'  : !!notifyService()
+    }">
+        @if (notifyService(); as noti) {
+        <div class="flex items-center text-xl">
+            @switch (noti.type) {
+            @case ('success') { <span class="material-symbols-outlined">check_circle</span> }
+            @case ('error') { <span class="material-symbols-outlined">error</span> }
+            @case ('info') { <span class="material-symbols-outlined">info</span> }
+            @case ('warn') { <span class="material-symbols-outlined">warning</span> }
+            }
+        </div>
+        <div class="w-full ps-4 text-sm font-normal break-words">
+            {{ noti.message }}
+        </div>
+        }
+    </div>
+</div>

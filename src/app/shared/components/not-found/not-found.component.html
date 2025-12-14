@@ -1,0 +1,37 @@
+<div class="min-h-screen bg-slate-950 text-slate-50 flex items-center justify-center px-4">
+  <!-- fondo suave -->
+  <div class="pointer-events-none absolute inset-0 opacity-40
+           bg-linear-to-br from-emerald-500/20 via-slate-950 to-slate-950"></div>
+
+  <section class="relative w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900/70
+           backdrop-blur p-6 sm:p-10 shadow">
+    <p class="text-xs uppercase tracking-widest text-slate-400">Error</p>
+
+    <div class="mt-2 flex items-end gap-3">
+      <h1 class="text-6xl sm:text-7xl font-extrabold text-emerald-400 leading-none">404</h1>
+      <span class="text-sm sm:text-base font-semibold text-slate-200 pb-2">Página no encontrada</span>
+    </div>
+
+    <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+      Lo sentimos, la página que estás buscando no existe o fue movida.
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <a routerLink="/catalog" class="inline-flex items-center justify-center rounded-full
+               bg-emerald-500 px-5 py-2 text-sm font-semibold text-slate-950
+               transition hover:bg-emerald-400 active:scale-[0.98]">
+        Volver al catálogo
+      </a>
+
+      <a routerLink="/" class="inline-flex items-center justify-center rounded-full
+               border border-slate-700 bg-slate-950/40 px-5 py-2 text-sm font-medium
+               text-slate-200 transition hover:border-emerald-500 hover:bg-slate-900">
+        Ir al inicio
+      </a>
+    </div>
+
+    <p class="mt-6 text-xs text-slate-500">
+      Tip: revisa la URL o usa el menú para volver a una sección válida.
+    </p>
+  </section>
+</div>

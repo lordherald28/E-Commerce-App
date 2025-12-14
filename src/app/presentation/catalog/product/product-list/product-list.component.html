@@ -1,0 +1,18 @@
+<div class="w-full">
+  @if(items().length){
+  <div class="mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (item of items(); track item.id) {
+    <app-product-item [product]="item" [isHaveItems]="(!items() || items().length > 0)" (addToCart)="onAddTo($event)"
+      (deleteToCart)="onDeleteTo($event)" (updateToCart)="onUpdateTo($event)"></app-product-item>
+    }
+  </div>
+
+  }@else {
+  <div class="flex justify-center items-center py-10">
+    <span class="text-gray-300 text-sm">
+      No hay elementos para mostrar.
+    </span>
+  </div>
+  }
+
+</div>

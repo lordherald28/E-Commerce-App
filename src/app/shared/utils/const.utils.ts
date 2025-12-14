@@ -1,0 +1,1 @@
+export const UPDATE_DELAY_MS = 1000; 
