@@ -23,7 +23,14 @@ export class CartItemComponent {
   /** OUTPUTS */
   readonly deleteItemFromCart = output<number>();
   readonly updateItemFromCart = output<{ productId: number; quantity: number }>();
-
+  
+  constructor() {
+    effect(() => {
+      const item = this.item();
+      item && this.quantityProductSelected.set(item.quantity);
+    })
+  }
+  
   increaseCount() {
     const item = this.item();
     if (!this.updatingQuantity() && item) {
@@ -61,5 +68,6 @@ export class CartItemComponent {
   onDelete(idProduct: number) {
     this.deleteItemFromCart.emit(idProduct);
   }
+
 
 }
