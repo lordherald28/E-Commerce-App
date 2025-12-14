@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output, signal, effect } from '@angular/core';
 import { ShortDescriptionPipe } from '../../../../shared/pipes/short-description.pipe';
 import { CartItem } from '../../../../domain';
 import { UPDATE_DELAY_MS } from '../../../../shared/utils/const.utils';
@@ -24,6 +24,13 @@ export class CartItemComponent {
   readonly deleteItemFromCart = output<number>();
   readonly updateItemFromCart = output<{ productId: number; quantity: number }>();
 
+  constructor() {
+    effect(() => {
+      const item = this.item();
+      item && this.quantityProductSelected.set(item.quantity);
+    })
+  }
+  
   increaseCount() {
     const item = this.item();
     if (!this.updatingQuantity() && item) {
@@ -61,5 +68,6 @@ export class CartItemComponent {
   onDelete(idProduct: number) {
     this.deleteItemFromCart.emit(idProduct);
   }
+
 
 }
