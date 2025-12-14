@@ -9,37 +9,91 @@
     <span class="hidden sm:inline">{{ title() | slice:1 }}</span>
   </a>
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="hidden md:flex flex-1 max-w-2xl items-center">
+<button type="button"
+  class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800"
+  (click)="openSearch()">
+  <span class="material-symbols-outlined text-base">search</span>
+</button>
 
-    <div class="flex w-full rounded-full border border-slate-700 bg-slate-900/80 overflow-hidden
-                focus-within:border-emerald-500 transition-colors">
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()"
+  class="hidden md:flex flex-1 max-w-2xl items-center">
+  <div class="flex w-full rounded-full border border-slate-700 bg-slate-900/80 overflow-hidden
+              focus-within:border-emerald-500 transition-colors">
 
-      <select formControlName="category"
-        class="h-10 px-3 text-xs text-slate-100 bg-slate-950/40 border-r border-slate-700 outline-none">
-        <option value="">Todas</option>
-        @for (c of categories(); track c) {
-        <option [value]="c">{{ c }}</option>
-        }
-      </select>
+    <select formControlName="category"
+      class="h-10 px-3 text-xs text-slate-100 bg-slate-950/40 border-r border-slate-700 outline-none">
+      <option value="">Todas</option>
+      @for (c of categories(); track c) {
+      <option [value]="c">{{ c }}</option>
+      }
+    </select>
 
-      <div class="flex items-center gap-2 flex-1 px-3">
-        <span class="material-symbols-outlined text-base text-slate-300">search</span>
+    <div class="flex items-center gap-2 flex-1 px-3">
+      <span class="material-symbols-outlined text-base text-slate-300">search</span>
 
-        <input type="text" formControlName="query" placeholder="Buscar por título / descripción…"
-          class="w-full bg-transparent outline-none text-sm text-slate-100 placeholder:text-slate-500" />
+      <input type="text" formControlName="query" placeholder="Buscar por título / descripción…"
+        class="w-full bg-transparent outline-none text-sm text-slate-100 placeholder:text-slate-500" />
 
-        <button type="button" (click)="onClear()" class="rounded-full border border-slate-700 bg-slate-900 px-3 py-1 text-[0.7rem] font-semibold text-slate-200
-                       hover:bg-slate-800 transition">
-          Limpiar
-        </button>
+      <button type="button" (click)="onClear()"
+        class="rounded-full border border-slate-700 bg-slate-900 px-3 py-1 text-[0.7rem] font-semibold text-slate-200 hover:bg-slate-800 transition">
+        Limpiar
+      </button>
 
-        <button type="submit" class="rounded-full bg-emerald-500 px-4 py-1 text-[0.75rem] font-semibold text-slate-950
-                       hover:bg-emerald-400 active:scale-[0.98] transition" [disabled]="searchForm.invalid">
-          Buscar
+      <button type="submit"
+        class="rounded-full bg-emerald-500 px-4 py-1 text-[0.75rem] font-semibold text-slate-950 hover:bg-emerald-400 active:scale-[0.98] transition disabled:opacity-50 disabled:cursor-not-allowed"
+        [disabled]="searchForm.invalid">
+        Buscar
+      </button>
+    </div>
+  </div>
+</form>
+
+@if (isSearchOpen()) {
+  <div class="fixed inset-0 z-50">
+    <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" (click)="closeSearch()"></div>
+
+    <div class="relative mx-auto mt-16 w-[min(92vw,36rem)] rounded-2xl border border-slate-800 bg-slate-950 p-4 shadow-xl">
+      <div class="mb-3 flex items-center justify-between">
+        <p class="text-sm font-semibold text-slate-100">Buscar</p>
+        <button type="button"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800"
+          (click)="closeSearch()">
+          <span class="material-symbols-outlined text-base">close</span>
         </button>
       </div>
+
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmitMobile()" class="flex flex-col gap-3">
+        <select formControlName="category"
+          class="h-11 w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 text-sm text-slate-100 outline-none focus:border-emerald-500">
+          <option value="">Todas</option>
+          @for (c of categories(); track c) {
+          <option [value]="c">{{ c }}</option>
+          }
+        </select>
+
+        <div class="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/80 px-3 focus-within:border-emerald-500">
+          <span class="material-symbols-outlined text-base text-slate-300">search</span>
+          <input type="text" formControlName="query" placeholder="Buscar por título / descripción…"
+            class="h-11 w-full bg-transparent outline-none text-sm text-slate-100 placeholder:text-slate-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button type="button" (click)="onClearMobile()"
+            class="flex-1 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 transition">
+            Limpiar
+          </button>
+
+          <button type="submit"
+            class="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-400 active:scale-[0.98] transition disabled:opacity-50 disabled:cursor-not-allowed"
+            [disabled]="searchForm.invalid">
+            Buscar
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
+}
+
 
   <nav class="flex items-center gap-2 text-sm shrink-0">
     <a routerLink="/catalog" routerLinkActive="bg-slate-800 text-slate-50" class="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full
@@ -92,4 +146,5 @@
 
     }
   </nav>
+
 </header>
