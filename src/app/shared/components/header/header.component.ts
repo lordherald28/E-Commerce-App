@@ -19,7 +19,8 @@ export class HeaderComponent {
   readonly isLogged = this.authStore.logged;
 
   readonly isUserMenuOpen = signal(false);
-
+  readonly isSearchOpen = signal(false);
+  
   readonly categories = this.catalogStore.categories;
 
   readonly userName = computed(() => this.authStore.profile()?.name.firstname ?? '');
@@ -64,6 +65,24 @@ export class HeaderComponent {
     this.catalogStore.clearFilters();
   }
 
+  openSearch(): void {
+    this.isSearchOpen.set(true);
+  }
+
+  closeSearch(): void {
+    this.isSearchOpen.set(false);
+  }
+
+  onSubmitMobile(): void {
+    this.onSubmit();
+    if (this.searchForm.valid) this.closeSearch();
+  }
+
+  onClearMobile(): void {
+    this.onClear();
+    this.closeSearch();
+  }
+  
   toggleUserMenu(): void {
     this.isUserMenuOpen.update(v => !v);
   }
@@ -79,3 +98,4 @@ export class HeaderComponent {
   }
 
 }
+
