@@ -15,7 +15,7 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
       <div>
-        <label class="block text-xs text-slate-300 mb-1">Username</label>
+        <label class="block text-xs text-slate-300 mb-1">Usuario</label>
         <input type="text" formControlName="username" autocomplete="username" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm
                  text-slate-50 placeholder:text-slate-600
                  focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="marcos" />
@@ -31,7 +31,7 @@
       </div>
 
       <div>
-        <label class="block text-xs text-slate-300 mb-1">Password</label>
+        <label class="block text-xs text-slate-300 mb-1">Contraseña</label>
         <input type="password" formControlName="password" autocomplete="current-password" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm
                  text-slate-50 placeholder:text-slate-600
                  focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="********" />
@@ -90,3 +90,4 @@
   </div>
 
 </div>
+
