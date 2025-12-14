@@ -20,7 +20,7 @@
       <div class="flex items-center gap-3">
         @if (showControlsAmmoun()) {
         <button type="button" (click)="decreaseCount()"
-          [disabled]="updatingQuantity() || quantityProductSelected() === 1 || quantityProductSelected() === 0"
+          [disabled]="updatingQuantity() || quantityProductSelected() === 1"
           class="flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-lg hover:bg-slate-800 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50">
           −
         </button>
@@ -59,4 +59,5 @@
       }
     </div>
   </div>
+
 </div>
